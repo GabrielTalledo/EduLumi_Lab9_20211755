@@ -81,7 +81,7 @@
                     <div class="col-lg-8 offset-lg-2 col-md-12 co-12">
                         <div class="home-slider">
                             <div class="hero-text">
-                                <h5 class="wow fadeInUp" data-wow-delay=".3s">Descubre la diversidad académica en un solo lugar</h5>
+                                <h5 class="mt-5 wow fadeInUp" data-wow-delay=".3s">Descubre la diversidad académica en un solo lugar</h5>
                                 <h1 class="wow fadeInUp" data-wow-delay=".5s">Plataforma educativa<br> para el seguimiento de notas</h1>
                                 <p class="wow fadeInUp" data-wow-delay=".7s">Herramienta centralizada, diseñada para brindarte información detallada sobre los cursos, docentes y evaluaciones asignadas en diversas universidades.</p>
                             </div>
