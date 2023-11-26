@@ -26,7 +26,7 @@
     </div>
     <!--/ End Footer Middle -->
     <!-- Start Footer Bottom -->
-    <div class="footer-bottom wow fadeInUp" data-wow-delay=".4s"">
+    <div class="footer-bottom wow fadeInUp" data-wow-delay=".4s">
         <div class="container">
             <div class="inner">
                 <div class="row">
