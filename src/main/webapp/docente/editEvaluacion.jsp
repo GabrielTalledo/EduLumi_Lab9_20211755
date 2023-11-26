@@ -61,7 +61,7 @@
 <!-- /End Preloader -->
 
 <jsp:include page="/navbar.jsp">
-    <jsp:param name="currentPage" value="docentes"/>
+    <jsp:param name="currentPage" value="evaluaciones"/>
 </jsp:include>
 
 <!-- Start Breadcrumbs -->

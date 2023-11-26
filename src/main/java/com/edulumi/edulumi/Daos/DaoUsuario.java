@@ -36,7 +36,7 @@ public class DaoUsuario extends DaoBase{
 
         Usuario usuario = null;
 
-        String sql = "SELECT u.idusuario FROM usuario u WHERE correo = ? AND password = ?";
+        String sql = "SELECT u.idusuario FROM usuario u WHERE correo = ? AND password = sha2(?,256)";
 
         try (Connection conn = this.getConection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {

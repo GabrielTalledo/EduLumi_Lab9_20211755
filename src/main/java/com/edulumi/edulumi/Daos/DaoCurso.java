@@ -96,7 +96,7 @@ public class DaoCurso extends DaoBase{
     public void newCurso(String codigo, String nombre, int idDocente, int idFacultad){
         String sql = "INSERT INTO curso(idcurso,codigo,nombre,idfacultad,fecha_registro,fecha_edicion) VALUES (?,?,?,?,now(),now())";
 
-        int idCurso = new DaoUsuario().getUltimoId()+1;
+        int idCurso = this.getUltimoId()+1;
 
         try (Connection conn = this.getConection();
              PreparedStatement pstmt = conn.prepareStatement(sql);) {
