@@ -72,8 +72,12 @@
         <div class="row align-items-center">
             <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
                 <div class="breadcrumbs-content">
-                    <h1 class="page-title">Evaluaciones</h1>
-                    <p>Visualiza y gestiona las evaluaciones derivadas del curso de <div style="color: #0EDC8D">"<%=((Docente)usuario).getCurso().getCodigo()%>: <%=((Docente)usuario).getCurso().getNombre()%>"</div><div style="color:white;"> de la facultad de </div><div style="color: #0EDC8D">"<%=((Docente)usuario).getCurso().getFacultad().getNombre()%>".</div></p><p>Podrás editar la información de cada evaluación y eliminarlas si es necesario, con el fin de que se refleje con precisión el rendimiento académico de los estudiantes del curso.</p>
+                    <h1 class="page-title wow fadeInDown" data-wow-delay=".2s">Evaluaciones</h1>
+                    <%if(((Docente)usuario).getCurso().getFacultad()==null){%>
+                    <p class="wow fadeInUp" data-wow-delay=".4s">Por el momento, no ha sido asignado a algún curso.</p>
+                    <%}else{%>
+                    <p class="wow fadeInUp" data-wow-delay=".4s">Visualiza y gestiona las evaluaciones derivadas del curso de <div style="color: #0EDC8D" class="wow fadeInUp" data-wow-delay=".4s">"<%=((Docente)usuario).getCurso().getCodigo()%>: <%=((Docente)usuario).getCurso().getNombre()%>"</div><div style="color:white;" class="wow fadeInUp" data-wow-delay=".4s"> de la facultad de </div><div style="color: #0EDC8D" class="wow fadeInUp" data-wow-delay=".4s">"<%=((Docente)usuario).getCurso().getFacultad().getNombre()%>".</div></p><p class="wow fadeInUp" data-wow-delay=".4s">Podrás editar la información de cada evaluación y eliminarlas si es necesario, con el fin de que se refleje con precisión el rendimiento académico de los estudiantes del curso.</p>
+                    <%}%>
                 </div>
             </div>
         </div>
@@ -83,8 +87,9 @@
 
 <!-- Start About Us Area -->
 <section class="about-us section">
+
     <div class="container">
-        <div class="d-flex bd-highlight mb-4">
+        <div class="d-flex bd-highlight form-head wow fadeInUp" data-wow-delay=".8s">
             <div class="me-auto p-2 bd-highlight"><h2><u>Listado:</u>
             </h2></div>
             <form method="get" action="<%=request.getContextPath()%>/EvaluacionesServlet">
@@ -104,12 +109,17 @@
         </div>
         <% if(msg!=null){%>
         <div class="row mb-3">
-            <p style="color: #0EDC8D"><%=msg%>.</p>
+            <p style="color: #0EDC8D" class="wow fadeInUp" data-wow-delay=".6s"><%=msg%>.</p>
         </div>
         <%request.getSession().removeAttribute("msg");}%>
+        <%if(listaEvaluaciones.isEmpty()){%>
+        <div class="container">
+            <h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">No posee evaluaciones registradas.</h2>
+        </div>
+        <%}else{%>
         <div class="row">
             <div class="col-12 table-responsive">
-                <table class="table">
+                <table class="table wow fadeInUp" data-wow-delay=".8s">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -160,7 +170,9 @@
                 </table>
             </div>
         </div>
+        <%}%>
     </div>
+
 </section>
 <!-- /End About Us Area -->
 

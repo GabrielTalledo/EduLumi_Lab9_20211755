@@ -64,8 +64,8 @@
         <div class="row align-items-center">
             <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
                 <div class="breadcrumbs-content">
-                    <h1 class="page-title">Agregar nuevo docente</h1>
-                    <p>Por favor, rellene los datos de acceso del nuevo usuario.</p>
+                    <h1 class="page-title wow fadeInDown" data-wow-delay=".2s">Agregar nuevo docente</h1>
+                    <p class="wow fadeInUp" data-wow-delay=".4s">Por favor, rellene los datos de acceso del nuevo usuario.</p>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12">
-                <div class="form-head">
+                <div class="form-head wow fadeInUp" data-wow-delay=".6s">
                     <h4 class="title">Credenciales del Docente</h4>
                     <form method="post" action="<%=request.getContextPath()%>/DocentesServlet?action=new">
                         <div class="form-group">

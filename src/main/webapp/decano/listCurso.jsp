@@ -67,8 +67,8 @@
         <div class="row align-items-center">
             <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
                 <div class="breadcrumbs-content">
-                    <h1 class="page-title">Cursos</h1>
-                    <p>Visualiza y gestiona los cursos ofrecidos por la facultad de <div style="color: #0EDC8D">"<%=((Decano)usuario).getFacultad().getNombre()%>".</div></p><p>Podrás editar la información de cada materia y eliminarlas si es necesario, con el fin de que se refleje con precisión el plan académico de la facultad.</p>
+                    <h1 class="page-title wow fadeInDown" data-wow-delay=".2s">Cursos</h1>
+                    <p class="wow fadeInUp" data-wow-delay=".4s">Visualiza y gestiona los cursos ofrecidos por la facultad de <div style="color: #0EDC8D" class="wow fadeInUp" data-wow-delay=".4s">"<%=((Decano)usuario).getFacultad().getNombre()%>".</div></p><p class="wow fadeInUp" data-wow-delay=".4s">Podrás editar la información de cada materia y eliminarlas si es necesario, con el fin de que se refleje con precisión el plan académico de la facultad.</p>
                 </div>
             </div>
         </div>
@@ -78,19 +78,24 @@
 
 <!-- Start About Us Area -->
 <section class="about-us section">
+    <%if(listaCursos.isEmpty()){%>
     <div class="container">
-        <div class="row mb-4">
+        <h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">No posee cursos registrados.</h2>
+    </div>
+    <%}else{%>
+    <div class="container">
+        <div class="row mb-4 wow fadeInUp" data-wow-delay=".8s">
             <h2><u>Listado:</u></h2>
         </div>
 
         <% if(msg!=null){%>
         <div class="row mb-3">
-            <p style="color: #0EDC8D"><%=msg%>.</p>
+            <p style="color: #0EDC8D" class="wow fadeInUp" data-wow-delay=".6s"><%=msg%>.</p>
         </div>
         <%request.getSession().removeAttribute("msg");}%>
         <div class="row">
             <div class="col-12 table-responsive">
-                <table class="table">
+                <table class="table wow fadeInUp" data-wow-delay=".8s">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -140,6 +145,7 @@
             </div>
         </div>
     </div>
+    <%}%>
 </section>
 <!-- /End About Us Area -->
 

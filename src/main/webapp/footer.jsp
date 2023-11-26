@@ -4,7 +4,7 @@
     <!-- Start Middle Top -->
     <div class="footer-middle">
         <div class="container">
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center wow fadeInUp" data-wow-delay=".4s">
                 <div class="col-lg-4 col-md-4 col-12">
                     <!-- Single Widget -->
                     <div class="single-footer">
@@ -26,7 +26,7 @@
     </div>
     <!--/ End Footer Middle -->
     <!-- Start Footer Bottom -->
-    <div class="footer-bottom">
+    <div class="footer-bottom wow fadeInUp" data-wow-delay=".4s"">
         <div class="container">
             <div class="inner">
                 <div class="row">
