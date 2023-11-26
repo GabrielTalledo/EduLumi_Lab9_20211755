@@ -2,6 +2,8 @@ package com.edulumi.edulumi.Controllers;
 
 import com.edulumi.edulumi.Beans.Usuario;
 import com.edulumi.edulumi.Daos.DaoUsuario;
+import com.edulumi.edulumi.Dtos.Decano;
+import com.edulumi.edulumi.Dtos.Docente;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -31,34 +33,33 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("inputEmail");
         String password = request.getParameter("inputPassword");
+        HttpSession session = request.getSession();
 
-        if (email == null || password == null) {
-            request.setAttribute("error", "Credenciales no pueden ser vacías");
-            request.setAttribute("email",email);
-            RequestDispatcher view = request.getRequestDispatcher("login.jsp");
-            view.forward(request, response);
+        if (email == null || password == null || email.isEmpty() || password.isEmpty()) {
+            session.setAttribute("error", "Credenciales no pueden ser vacías");
+            session.setAttribute("email",email);
+            response.sendRedirect(request.getContextPath());
         }else{
             DaoUsuario daoUsuario = new DaoUsuario();
             Usuario usuario = daoUsuario.getUsuarioLogIn(email, password);
             if (usuario != null) {
                 daoUsuario.refreshUsuario(usuario.getIdUsuario());
-                HttpSession session = request.getSession();
-                session.setAttribute("usuario", usuario);
-                session.setMaxInactiveInterval(5 * 60); // 5 minutos
+                session.setMaxInactiveInterval(5 * 60);
 
                 if(usuario.getRol().getNombre().equals("Decano")){
-                    System.out.println("uwu");
+                    Decano decano = daoUsuario.getDecanoFacultad(usuario);
+                    session.setAttribute("usuario", decano);
                     response.sendRedirect(request.getContextPath() + "/CursosServlet");
                 }else{
-                    System.out.println("owo");
+                    Docente docente = daoUsuario.getDocenteCurso(usuario);
+                    session.setAttribute("usuario", docente);
                     response.sendRedirect(request.getContextPath() + "/EvaluacionesServlet");
                 }
 
             } else {
-                request.setAttribute("error", "Credenciales incorrectas");
-                request.setAttribute("email",email);
-                RequestDispatcher view = request.getRequestDispatcher("login.jsp");
-                view.forward(request, response);
+                session.setAttribute("error", "Credenciales incorrectas");
+                session.setAttribute("email",email);
+                response.sendRedirect(request.getContextPath());
             }
         }
     }
